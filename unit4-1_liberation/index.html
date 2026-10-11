@@ -1,0 +1,1389 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>8·15 광복과 통일 정부 수립을 위한 노력</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@700&display=swap');
+
+* { margin: 0; padding: 0; box-sizing: border-box; word-break: keep-all; overflow-wrap: break-word; }
+html, body { width: 100vw; height: 100vh; overflow: hidden; }
+body {
+  background: #1c1917;
+  font-family: 'Pretendard', sans-serif;
+  color: #292524;
+  -webkit-font-smoothing: antialiased;
+}
+
+.slide {
+  position: absolute; inset: 0;
+  width: 100vw; height: 100vh;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 5vh 8vw;
+}
+.slide.active { display: flex; }
+.slide.light { background: #faf8f5; color: #292524; }
+.slide.dark { background: #1c1917; color: #faf8f5; }
+
+.serif { font-family: 'Gowun Batang', serif; font-weight: 700; }
+
+/* 카운터 */
+.counter {
+  position: fixed;
+  bottom: 2vh; right: 2vw;
+  font-family: 'Pretendard';
+  font-size: 1.2vw;
+  color: #a8a29e;
+  z-index: 100;
+  font-variant-numeric: tabular-nums;
+}
+.slide.light ~ .counter { color: #78716c; }
+
+/* 프래그먼트 */
+.fragment {
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity .35s ease, transform .35s ease;
+}
+.fragment.visible { opacity: 1; transform: none; }
+
+/* ───── 표지 ───── */
+.cover-unit {
+  font-family: 'Pretendard';
+  font-size: 2vw;
+  font-weight: 500;
+  color: #d97706;
+  letter-spacing: 0.3em;
+  margin-bottom: 2vh;
+}
+.cover-title {
+  font-family: 'Pretendard';
+  font-size: 6vw;
+  font-weight: 900;
+  line-height: 1.15;
+  text-align: center;
+  letter-spacing: -0.02em;
+}
+.cover-sub {
+  font-family: 'Gowun Batang', serif;
+  font-weight: 700;
+  font-size: 2vw;
+  color: #a8a29e;
+  margin-top: 3vh;
+}
+.cover-line {
+  width: 8vw; height: 3px;
+  background: #d97706;
+  margin: 3vh 0;
+}
+
+/* ───── Part 구분 ───── */
+.part-label {
+  font-family: 'Pretendard';
+  font-size: 2vw;
+  font-weight: 600;
+  color: #d97706;
+  letter-spacing: 0.4em;
+  margin-bottom: 3vh;
+}
+.part-title {
+  font-family: 'Pretendard';
+  font-size: 5.5vw;
+  font-weight: 800;
+  line-height: 1.2;
+  text-align: center;
+  letter-spacing: -0.02em;
+}
+
+/* ───── 일반 제목 ───── */
+.h-main {
+  font-family: 'Pretendard';
+  font-size: 4.5vw;
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  margin-bottom: 4vh;
+  text-align: center;
+}
+.h-sub {
+  font-family: 'Pretendard';
+  font-size: 2vw;
+  font-weight: 600;
+  color: #92400e;
+  letter-spacing: 0.1em;
+  margin-bottom: 1.5vh;
+  text-align: center;
+}
+.h-caption {
+  font-family: 'Gowun Batang', serif;
+  font-weight: 700;
+  font-size: 1.8vw;
+  color: #78716c;
+  text-align: center;
+  margin-top: 2vh;
+}
+
+/* ───── 큰 날짜/숫자 ───── */
+.big-date {
+  font-family: 'Pretendard';
+  font-size: 13vw;
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  color: #92400e;
+}
+.big-date-sub {
+  font-family: 'Gowun Batang', serif;
+  font-weight: 700;
+  font-size: 2.8vw;
+  margin-top: 3vh;
+  color: #292524;
+  text-align: center;
+}
+
+/* ───── 학습 목표 ───── */
+.goal-list {
+  width: 80vw;
+  display: flex;
+  flex-direction: column;
+  gap: 3vh;
+}
+.goal-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 2vw;
+  padding: 2.5vh 2.5vw;
+  border-left: 4px solid #92400e;
+  background: rgba(146, 64, 14, 0.04);
+}
+.goal-num {
+  font-family: 'Pretendard';
+  font-size: 3vw;
+  font-weight: 900;
+  color: #92400e;
+  line-height: 1;
+  min-width: 5vw;
+  white-space: nowrap;
+}
+.goal-text {
+  font-family: 'Gowun Batang', serif;
+  font-weight: 700;
+  font-size: 2.2vw;
+  line-height: 1.5;
+  color: #292524;
+}
+
+/* ───── 주요 용어 (태그 클라우드 스타일) ───── */
+.terms-grid {
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  gap: 2.5vh 2vw;
+  justify-content: center;
+  margin-top: 3vh;
+}
+.term {
+  font-family: 'Pretendard';
+  font-size: 2.2vw;
+  font-weight: 700;
+  padding: 1.5vh 2vw;
+  border: 2px solid #d97706;
+  border-radius: 100vw;
+  color: #faf8f5;
+  background: transparent;
+  white-space: nowrap;
+}
+
+/* ───── 인물 카드 ───── */
+.person-row {
+  display: flex;
+  gap: 3vw;
+  align-items: stretch;
+  justify-content: center;
+}
+.person-card {
+  background: #fff;
+  border: 1px solid #e7e5e4;
+  border-top: 5px solid #92400e;
+  padding: 4vh 3vw;
+  min-width: 22vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5vh;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.04);
+}
+.person-initial {
+  width: 8vw; height: 8vw;
+  border-radius: 50%;
+  background: #92400e;
+  color: #faf8f5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 4vw;
+  font-weight: 800;
+  font-family: 'Pretendard';
+}
+.person-name {
+  font-family: 'Pretendard';
+  font-size: 2.2vw;
+  font-weight: 800;
+}
+.person-dates {
+  font-family: 'Pretendard';
+  font-size: 1.4vw;
+  color: #78716c;
+  letter-spacing: 0.05em;
+}
+.person-desc {
+  font-family: 'Gowun Batang', serif;
+  font-weight: 700;
+  font-size: 1.6vw;
+  color: #292524;
+  text-align: center;
+  line-height: 1.5;
+}
+
+/* ───── 비교표 2단 ───── */
+.compare {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: 2vw;
+  width: 85vw;
+  align-items: stretch;
+}
+.compare-col {
+  padding: 3vh 2.5vw;
+  border-radius: 4px;
+}
+.compare-col.left { background: rgba(153, 27, 27, 0.06); border-top: 4px solid #991b1b; }
+.compare-col.right { background: rgba(22, 101, 52, 0.06); border-top: 4px solid #166534; }
+.compare-col h3 {
+  font-family: 'Pretendard';
+  font-size: 2.4vw;
+  font-weight: 800;
+  margin-bottom: 2vh;
+}
+.compare-col.left h3 { color: #991b1b; }
+.compare-col.right h3 { color: #166534; }
+.compare-col ul { list-style: none; }
+.compare-col li {
+  font-family: 'Gowun Batang', serif;
+  font-weight: 700;
+  font-size: 1.8vw;
+  padding: 1.2vh 0;
+  border-bottom: 1px dashed #d6d3d1;
+  line-height: 1.45;
+}
+.compare-col li:last-child { border-bottom: none; }
+.compare-divider {
+  width: 2px;
+  background: #d6d3d1;
+  margin: 2vh 0;
+}
+
+/* ───── 카드 그리드 ───── */
+.cards {
+  display: flex;
+  gap: 2vw;
+  justify-content: center;
+  width: 85vw;
+}
+.card {
+  flex: 1;
+  background: #fff;
+  border: 1px solid #e7e5e4;
+  padding: 3vh 2vw;
+  min-height: 35vh;
+  display: flex;
+  flex-direction: column;
+  gap: 2vh;
+}
+.card-num {
+  font-family: 'Pretendard';
+  font-size: 3vw;
+  font-weight: 900;
+  color: #92400e;
+  line-height: 1;
+}
+.card-title {
+  font-family: 'Pretendard';
+  font-size: 1.9vw;
+  font-weight: 800;
+  line-height: 1.3;
+}
+.card-body {
+  font-family: 'Gowun Batang', serif;
+  font-weight: 700;
+  font-size: 1.5vw;
+  color: #44403c;
+  line-height: 1.55;
+  margin-top: auto;
+}
+
+/* ───── 흐름도 ───── */
+.flow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5vw;
+  width: 90vw;
+  flex-wrap: wrap;
+}
+.flow-step {
+  padding: 3vh 2vw;
+  background: #fff;
+  border: 2px solid #92400e;
+  border-radius: 4px;
+  min-width: 16vw;
+  text-align: center;
+}
+.flow-step .s-title {
+  font-family: 'Pretendard';
+  font-size: 1.9vw;
+  font-weight: 800;
+  color: #92400e;
+  margin-bottom: 0.8vh;
+}
+.flow-step .s-sub {
+  font-family: 'Gowun Batang', serif;
+  font-weight: 700;
+  font-size: 1.4vw;
+  color: #44403c;
+  line-height: 1.4;
+}
+.flow-arrow {
+  font-family: 'Pretendard';
+  font-size: 3vw;
+  font-weight: 300;
+  color: #d97706;
+}
+
+/* ───── 사료 인용 (다크) ───── */
+.source-quote {
+  max-width: 75vw;
+  display: flex;
+  flex-direction: column;
+  gap: 3vh;
+  align-items: center;
+  text-align: center;
+}
+.source-label {
+  font-family: 'Pretendard';
+  font-size: 1.6vw;
+  font-weight: 600;
+  color: #d97706;
+  letter-spacing: 0.3em;
+  margin-bottom: 1vh;
+}
+.source-original {
+  font-family: 'Gowun Batang', serif;
+  font-weight: 700;
+  font-size: 2.4vw;
+  line-height: 1.6;
+  color: #faf8f5;
+  position: relative;
+  padding: 0 3vw;
+}
+.source-original::before {
+  content: '"';
+  position: absolute;
+  left: 0; top: -2vh;
+  font-size: 6vw;
+  color: #d97706;
+  opacity: 0.4;
+}
+.source-meta {
+  font-family: 'Pretendard';
+  font-size: 1.5vw;
+  color: #a8a29e;
+  margin-top: 2vh;
+}
+
+/* ───── 타임라인 (CSS Grid) ───── */
+.timeline {
+  display: grid;
+  width: 88vw;
+  row-gap: 1.5vh;
+  align-items: center;
+}
+.tl-label {
+  text-align: center;
+  font-family: 'Pretendard';
+  font-size: 1.8vw;
+  font-weight: 800;
+  color: #92400e;
+}
+.tl-label.current { color: #166534; }
+.tl-dot-row {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: inherit;
+  align-items: center;
+  position: relative;
+  height: 4vh;
+}
+.tl-line-overlay {
+  position: absolute;
+  top: 50%; left: 0; right: 0;
+  transform: translateY(-50%);
+  height: 3px;
+  background: #d6d3d1;
+  z-index: 0;
+}
+.tl-dot-cell {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+.tl-dot {
+  width: 1.6vw; height: 1.6vw;
+  border-radius: 50%;
+  background: #92400e;
+  border: 3px solid #faf8f5;
+}
+.tl-dot.current {
+  width: 2.2vw; height: 2.2vw;
+  background: #166534;
+  box-shadow: 0 0 0 4px rgba(22,101,52,0.3);
+}
+.tl-desc {
+  text-align: center;
+  font-family: 'Gowun Batang', serif;
+  font-weight: 700;
+  font-size: 1.4vw;
+  color: #44403c;
+  line-height: 1.4;
+}
+
+/* ───── 이미지 슬라이드 ───── */
+.img-slide { padding: 0; }
+.img-slide img {
+  max-width: 88vw; max-height: 78vh;
+  object-fit: contain;
+}
+.img-caption {
+  position: absolute;
+  bottom: 5vh;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: 'Gowun Batang', serif;
+  font-weight: 700;
+  font-size: 1.6vw;
+  color: #78716c;
+  text-align: center;
+}
+.img-duo {
+  display: flex;
+  gap: 2vw;
+  align-items: center;
+}
+.img-duo figure {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.2vh;
+}
+.img-duo img {
+  max-height: 60vh; max-width: 40vw;
+  object-fit: contain;
+}
+.img-duo figcaption {
+  font-family: 'Gowun Batang', serif;
+  font-weight: 700;
+  font-size: 1.4vw;
+  color: #78716c;
+}
+.img-triple {
+  display: flex;
+  gap: 1.5vw;
+  align-items: flex-end;
+  max-width: 92vw;
+}
+.img-triple figure {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1vh;
+}
+.img-triple img {
+  max-height: 50vh; max-width: 28vw;
+  object-fit: contain;
+}
+.img-triple figcaption {
+  font-family: 'Gowun Batang', serif;
+  font-weight: 700;
+  font-size: 1.3vw;
+  color: #78716c;
+  text-align: center;
+  line-height: 1.4;
+}
+
+/* ───── 키워드 그리드 (마무리 정리) ───── */
+.kw-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2vh 2vw;
+  width: 80vw;
+  margin-top: 2vh;
+}
+.kw-item {
+  padding: 2.5vh 1.5vw;
+  border: 1px solid #d6d3d1;
+  background: #fff;
+  text-align: center;
+  font-family: 'Pretendard';
+  font-weight: 700;
+  font-size: 1.8vw;
+  color: #292524;
+}
+
+/* ───── 텍스트 박스 ───── */
+.note-box {
+  background: #fff;
+  border: 1px solid #e7e5e4;
+  border-left: 4px solid #92400e;
+  padding: 3vh 3vw;
+  max-width: 75vw;
+  font-family: 'Gowun Batang', serif;
+  font-weight: 700;
+  font-size: 1.9vw;
+  line-height: 1.6;
+  color: #292524;
+}
+.note-box .hl { color: #92400e; }
+
+/* ───── 2x2 그리드 ───── */
+.decision-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2vh 2vw;
+  width: 80vw;
+}
+.decision-item {
+  padding: 3vh 2vw;
+  background: #fff;
+  border: 1px solid #e7e5e4;
+  border-top: 3px solid #166534;
+}
+.decision-item .d-num {
+  font-family: 'Pretendard';
+  font-size: 1.4vw;
+  font-weight: 700;
+  color: #166534;
+  letter-spacing: 0.2em;
+  margin-bottom: 0.8vh;
+}
+.decision-item .d-title {
+  font-family: 'Pretendard';
+  font-size: 1.9vw;
+  font-weight: 800;
+  margin-bottom: 1vh;
+  line-height: 1.3;
+}
+.decision-item .d-desc {
+  font-family: 'Gowun Batang', serif;
+  font-weight: 700;
+  font-size: 1.4vw;
+  line-height: 1.5;
+  color: #44403c;
+}
+
+/* 다크 슬라이드용 card 오버라이드 */
+.slide.dark .note-box { background: rgba(255,255,255,0.04); color: #faf8f5; border-color: rgba(255,255,255,0.1); }
+.slide.dark .note-box .hl { color: #fbbf24; }
+
+/* 힌트 */
+.hint {
+  position: fixed;
+  bottom: 2vh; left: 2vw;
+  font-family: 'Pretendard';
+  font-size: 1vw;
+  color: #a8a29e;
+  opacity: 0.5;
+  z-index: 100;
+}
+</style>
+</head>
+<body>
+
+<!-- 1. 단원 표지 -->
+<section class="slide dark active">
+  <div class="cover-unit">IV. 대한민국의 발전</div>
+  <div class="cover-line"></div>
+  <div class="cover-title">8·15 광복과<br>통일 정부 수립을 위한 노력</div>
+  <div class="cover-sub">— 분단과 통일의 갈림길에서 —</div>
+</section>
+
+<!-- 2. 학습 목표 -->
+<section class="slide light">
+  <div class="h-sub">학습 목표</div>
+  <div class="h-main">이 단원에서 배울 것</div>
+  <div class="goal-list">
+    <div class="goal-item fragment">
+      <div class="goal-num">01</div>
+      <div class="goal-text">8·15 광복 이후 통일 정부 수립을 위한 노력과 미·소 양군의 주둔 과정을 설명할 수 있다.</div>
+    </div>
+    <div class="goal-item fragment">
+      <div class="goal-num">02</div>
+      <div class="goal-text">모스크바 3국 외상 회의의 결정을 둘러싼 갈등과 좌우 대립을 극복하기 위한 노력을 말할 수 있다.</div>
+    </div>
+    <div class="goal-item fragment">
+      <div class="goal-num">03</div>
+      <div class="goal-text">냉전이 동아시아와 한반도에 끼친 영향, 분단의 위기 속 통일 정부 수립 노력을 발표할 수 있다.</div>
+    </div>
+  </div>
+</section>
+
+<!-- 3. 주요 용어 -->
+<section class="slide dark">
+  <div class="h-sub" style="color:#d97706;">KEY TERMS</div>
+  <div class="h-main" style="color:#faf8f5;">이 단원의 주요 용어</div>
+  <div class="terms-grid">
+    <div class="term fragment">8·15 광복</div>
+    <div class="term fragment">조선 건국 준비 위원회</div>
+    <div class="term fragment">38도선 분할</div>
+    <div class="term fragment">모스크바 3국 외상 회의</div>
+    <div class="term fragment">미·소 공동 위원회</div>
+    <div class="term fragment">좌우 합작 운동</div>
+    <div class="term fragment">냉전</div>
+    <div class="term fragment">남북 협상</div>
+    <div class="term fragment">제주 4·3 사건</div>
+  </div>
+</section>
+
+<!-- 4. Part 1 -->
+<section class="slide dark">
+  <div class="part-label">PART 1</div>
+  <div class="part-title">8·15 광복과<br>미·소 양군의 진주</div>
+</section>
+
+<!-- 5. 1945.8.15 -->
+<section class="slide light">
+  <div class="big-date">1945<span style="font-size:7vw;color:#44403c;">.8.15</span></div>
+  <div class="big-date-sub">일왕의 항복, 한국은 일제의 식민 지배에서 벗어나다</div>
+  <div class="h-caption" style="margin-top:4vh;">연합국의 승리 + 끊임없이 독립운동을 벌였던 한국 민족의 쟁취</div>
+</section>
+
+<!-- 6. 이미지: 광복 -->
+<section class="slide light img-slide">
+  <img src="images/p3_img1.png" alt="광복을 기뻐하는 독립투사와 시민들">
+  <div class="img-caption">8·15 광복을 기뻐하는 독립투사와 시민들 (1945)</div>
+</section>
+
+<!-- 7. 조선 건국 준비 위원회 -->
+<section class="slide light">
+  <div class="h-main">조선 건국 준비 위원회</div>
+  <div class="person-row">
+    <div class="person-card">
+      <div class="person-initial">여</div>
+      <div class="person-name">여운형</div>
+      <div class="person-dates">1886~1947</div>
+      <div class="person-desc">조선 건국 동맹 바탕<br>독립 국가 건설 준비</div>
+    </div>
+    <div class="person-card">
+      <div class="person-initial">안</div>
+      <div class="person-name">안재홍</div>
+      <div class="person-dates">1891~1965</div>
+      <div class="person-desc">여운형과 함께<br>건준 공동 결성</div>
+    </div>
+  </div>
+  <div class="h-caption" style="margin-top:3vh;">광복 당일, 조선 총독부로부터 치안 유지 위임</div>
+</section>
+
+<!-- 8. 건준의 활동 -->
+<section class="slide light">
+  <div class="h-sub">건준의 활동</div>
+  <div class="h-main">전국으로 퍼진 건국 준비</div>
+  <div class="cards">
+    <div class="card fragment">
+      <div class="card-num">01</div>
+      <div class="card-title">전국 지부 설치</div>
+      <div class="card-body">각 지역에 지부를 두고 치안 유지와 행정 업무 담당</div>
+    </div>
+    <div class="card fragment">
+      <div class="card-num">02</div>
+      <div class="card-title">정치 세력 규합</div>
+      <div class="card-body">친일파를 제외한 국내외 다양한 정치 세력을 망라</div>
+    </div>
+    <div class="card fragment">
+      <div class="card-num">03</div>
+      <div class="card-title">자주 독립 국가 건설</div>
+      <div class="card-body">한국인의 힘으로 독립 국가를 세우겠다는 자신감</div>
+    </div>
+  </div>
+</section>
+
+<!-- 9. 조선 인민 공화국 흐름 -->
+<section class="slide light">
+  <div class="h-main" style="font-size:3.5vw;">건준 → 조선 인민 공화국</div>
+  <div class="flow">
+    <div class="flow-step fragment">
+      <div class="s-title">조선 건국 준비 위원회</div>
+      <div class="s-sub">1945.8.15<br>여운형·안재홍 결성</div>
+    </div>
+    <div class="flow-arrow fragment">→</div>
+    <div class="flow-step fragment">
+      <div class="s-title">조선 인민 공화국</div>
+      <div class="s-sub">1945.9.6<br>미군 진주 앞두고 수립 선포</div>
+    </div>
+    <div class="flow-arrow fragment">→</div>
+    <div class="flow-step fragment">
+      <div class="s-title">인민 위원회</div>
+      <div class="s-sub">각지 지부를<br>인민 위원회로 개편</div>
+    </div>
+  </div>
+  <div class="h-caption fragment" style="margin-top:5vh;">이승만을 주석에 추대, 좌우 세력 망라 → 그러나 일부 민족주의 세력 이탈</div>
+</section>
+
+<!-- 10. 정당 결성과 귀국 -->
+<section class="slide light">
+  <div class="h-sub">1945년 말</div>
+  <div class="h-main">정당 결성과 지도자 귀국</div>
+  <div class="decision-grid">
+    <div class="decision-item fragment">
+      <div class="d-num">국내</div>
+      <div class="d-title">한국 민주당</div>
+      <div class="d-desc">우익 중심 결성</div>
+    </div>
+    <div class="decision-item fragment">
+      <div class="d-num">국내</div>
+      <div class="d-title">조선 공산당</div>
+      <div class="d-desc">좌익 세력 재건</div>
+    </div>
+    <div class="decision-item fragment">
+      <div class="d-num">해외 귀국</div>
+      <div class="d-title">이승만 · 김구</div>
+      <div class="d-desc">이승만 10월, 김구 11월 귀국</div>
+    </div>
+    <div class="decision-item fragment">
+      <div class="d-num">공통 지향</div>
+      <div class="d-title">통일 정부 수립</div>
+      <div class="d-desc">1945년 말까지는 좌우 망라 지향</div>
+    </div>
+  </div>
+</section>
+
+<!-- 11. 38도선 -->
+<section class="slide dark">
+  <div class="big-date" style="color:#d97706;">38°N</div>
+  <div class="big-date-sub" style="color:#faf8f5;">한반도는 미·소 양국의 세력 분할 지점이 되었다</div>
+  <div class="h-caption" style="color:#a8a29e; margin-top:4vh;">미국이 제안, 소련이 동의 — 일본군 항복 접수를 명분으로</div>
+</section>
+
+<!-- 12. 미군 vs 소련군 -->
+<section class="slide light">
+  <div class="h-main">남과 북에 주둔한 미군·소련군</div>
+  <div class="compare">
+    <div class="compare-col left">
+      <h3>북 — 소련군</h3>
+      <ul>
+        <li class="fragment">1945년 8월 말 평양 진주</li>
+        <li class="fragment">행정권을 인민 위원회에 이양</li>
+        <li class="fragment">통치 전면에 나서지 않고 간접적 영향력 행사</li>
+        <li class="fragment">김일성 중심 좌익 세력 지원</li>
+      </ul>
+    </div>
+    <div class="compare-divider"></div>
+    <div class="compare-col right">
+      <h3>남 — 미군정</h3>
+      <ul>
+        <li class="fragment">1945년 9월 초 서울 진주</li>
+        <li class="fragment">직접 통치, 조선 인민 공화국·임시 정부 불인정</li>
+        <li class="fragment">총독부 관료·경찰 유임</li>
+        <li class="fragment">한국 민주당 등 우익 세력 활용</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- 13. 이미지: 미군·소련군 환영 -->
+<section class="slide light img-slide">
+  <div class="img-triple">
+    <figure>
+      <img src="images/p5_img0.png" alt="소련군 환영">
+      <figcaption>평양에 진주한 소련군을 환영하는 북한 주민들</figcaption>
+    </figure>
+    <figure>
+      <img src="images/p5_img1.png" alt="미군 환영">
+      <figcaption>부산에 진주한 미군을 환영하는 남한 주민들</figcaption>
+    </figure>
+    <figure>
+      <img src="images/p5_img2.png" alt="38도선">
+      <figcaption>한 마을 어귀에 그어진 남북의 경계선 38도선</figcaption>
+    </figure>
+  </div>
+  <div class="img-caption" style="bottom:2vh;">광복 직후 한국인들은 미·소 양군을 해방군으로 인식하였다</div>
+</section>
+
+<!-- 14. 사료: 베닝호프 보고 -->
+<section class="slide dark">
+  <div class="source-quote">
+    <div class="source-label">사료 · 1945.9.15</div>
+    <div class="source-original">남한은 불꽃이 튀면 즉각 폭발할 화약통… 일본인 관료의 해임은 여론상 바람직하나 당분간 어려울 것… 정치적으로 가장 고무적인 요소는 연로하고 교육받은 한국인 보수주의자들이다.</div>
+    <div class="source-meta">— 미 국무 장관에게 보낸 재한국 정치 고문 베닝호프의 보고</div>
+  </div>
+</section>
+
+<!-- 15. 생각하기: 미군정은 왜 친일 세력을 존속시켰을까 -->
+<section class="slide light">
+  <div class="h-sub">생각해 보자</div>
+  <div class="h-main" style="font-size:3.8vw;">미군정은 왜 친일 세력을<br>존속시켰을까?</div>
+  <div class="note-box" style="margin-top:3vh; text-align:center;">
+    급격한 변화보다 <span class="hl">현상 유지</span> 정책<br>
+    좌익 확산을 막기 위해 <span class="hl">보수 세력 활용</span>
+  </div>
+</section>
+
+<!-- 16. 타임라인 1945 -->
+<section class="slide light">
+  <div class="h-main" style="font-size:3.5vw;">1945년, 광복의 격랑</div>
+  <div class="timeline" style="grid-template-columns: repeat(5, 1fr);">
+    <div class="tl-label">8월</div>
+    <div class="tl-label">8월 말</div>
+    <div class="tl-label">9월</div>
+    <div class="tl-label">10월</div>
+    <div class="tl-label">11월</div>
+    <div class="tl-dot-row" style="grid-template-columns: repeat(5, 1fr);">
+      <div class="tl-line-overlay"></div>
+      <div class="tl-dot-cell"><div class="tl-dot"></div></div>
+      <div class="tl-dot-cell"><div class="tl-dot"></div></div>
+      <div class="tl-dot-cell"><div class="tl-dot"></div></div>
+      <div class="tl-dot-cell"><div class="tl-dot"></div></div>
+      <div class="tl-dot-cell"><div class="tl-dot"></div></div>
+    </div>
+    <div class="tl-desc">8·15 광복<br>건준 결성</div>
+    <div class="tl-desc">소련군<br>평양 진주</div>
+    <div class="tl-desc">미군 서울 진주<br>인민 공화국 선포</div>
+    <div class="tl-desc">이승만 귀국</div>
+    <div class="tl-desc">김구 귀국</div>
+  </div>
+</section>
+
+<!-- 17. Part 2 -->
+<section class="slide dark">
+  <div class="part-label">PART 2</div>
+  <div class="part-title">새로운 국가 건설을<br>둘러싼 갈등</div>
+</section>
+
+<!-- 18. 모스크바 3국 외상 회의 -->
+<section class="slide light">
+  <div class="h-sub">1945년 12월 모스크바</div>
+  <div class="h-main">미·영·소 외무 장관들이 모이다</div>
+  <div class="flow">
+    <div class="flow-step">
+      <div class="s-title">미국</div>
+      <div class="s-sub">4대국 신탁 통치안 제안</div>
+    </div>
+    <div class="flow-arrow">vs</div>
+    <div class="flow-step">
+      <div class="s-title">소련</div>
+      <div class="s-sub">조선 임시 정부 수립 핵심 수정안</div>
+    </div>
+  </div>
+  <div class="h-caption" style="margin-top:4vh;">→ 한반도 점령 당사국이 결정을 내렸다</div>
+</section>
+
+<!-- 19. 회의 결정 4단계 -->
+<section class="slide light">
+  <div class="h-main" style="font-size:3.2vw;">모스크바 3국 외상 회의 결정</div>
+  <div class="decision-grid">
+    <div class="decision-item fragment">
+      <div class="d-num">STEP 1</div>
+      <div class="d-title">미·소 공동 위원회 설치</div>
+      <div class="d-desc">한반도 점령 당사국이 조직</div>
+    </div>
+    <div class="decision-item fragment">
+      <div class="d-num">STEP 2</div>
+      <div class="d-title">조선 임시 정부 수립</div>
+      <div class="d-desc">한국인으로 구성, 민주적 정당·사회단체와 협의</div>
+    </div>
+    <div class="decision-item fragment">
+      <div class="d-num">STEP 3</div>
+      <div class="d-title">신탁 통치 (최장 5년)</div>
+      <div class="d-desc">4대국(미·소·영·중)이 공동 관리</div>
+    </div>
+    <div class="decision-item fragment">
+      <div class="d-num">STEP 4</div>
+      <div class="d-title">독립 국가 수립</div>
+      <div class="d-desc">신탁 통치 종료 후 완전한 독립</div>
+    </div>
+  </div>
+</section>
+
+<!-- 20. 사료: 모스크바 결정 -->
+<section class="slide dark">
+  <div class="source-quote">
+    <div class="source-label">사료 · 1945.12.26</div>
+    <div class="source-original">조선을 독립 국가로 재건하고 민주주의적으로 발전시키기 위하여 임시 조선 민주주의 정부를 수립한다. … 미·소 공동 위원회는 조선 임시 정부와 협의하여 최고 5년의 신탁 통치 방안을 마련한다.</div>
+    <div class="source-meta">— 모스크바 3국 외상 회의 결정</div>
+  </div>
+</section>
+
+<!-- 21. 동아일보 오보 -->
+<section class="slide light">
+  <div class="h-sub">공식 발표도 전에 퍼진 오보</div>
+  <div class="h-main" style="font-size:3.5vw;">"미국은 즉시 독립,<br>소련은 신탁 통치를 주장"</div>
+  <div class="note-box" style="margin-top:3vh; text-align:center;">
+    <span class="hl">『동아일보』(1945.12.27)</span>의 잘못된 보도<br>
+    → 신탁 통치 문제를 둘러싼 좌우 갈등이 <span class="hl">극도로 격화</span>
+  </div>
+</section>
+
+<!-- 22. 좌우 입장 변화 -->
+<section class="slide light">
+  <div class="h-main" style="font-size:3.2vw;">모스크바 결정에 대한 좌우의 입장</div>
+  <div class="compare">
+    <div class="compare-col left">
+      <h3>우익 — 반탁</h3>
+      <ul>
+        <li class="fragment">김구·이승만 중심</li>
+        <li class="fragment">신탁 통치 = 한국 독립 부인</li>
+        <li class="fragment">과거 을사늑약·위임 통치안과 같다</li>
+        <li class="fragment">신탁 통치 반대 운동 전개</li>
+      </ul>
+    </div>
+    <div class="compare-divider"></div>
+    <div class="compare-col right">
+      <h3>좌익 — 찬탁(전환)</h3>
+      <ul>
+        <li class="fragment">처음에는 반대</li>
+        <li class="fragment">민주 개혁·임시 정부 수립 보장</li>
+        <li class="fragment">5년 이내 독립 보장한다고 판단</li>
+        <li class="fragment">결정 지지로 입장 전환</li>
+      </ul>
+    </div>
+  </div>
+  <div class="h-caption fragment" style="margin-top:2vh;">좌우 대립이 절충점을 찾지 못하고 <b>극렬화</b></div>
+</section>
+
+<!-- 23. 이미지: 좌우 시위 -->
+<section class="slide light img-slide">
+  <div class="img-duo">
+    <figure>
+      <img src="images/p6_img0.png" alt="좌우 시위 1">
+      <figcaption>'삼상 결정 절대 지지' — 좌익 세력 시위</figcaption>
+    </figure>
+    <figure>
+      <img src="images/p6_img2.png" alt="좌우 시위 2">
+      <figcaption>'신탁 통치 절대 반대' — 우익 세력 시위</figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- 24. 미·소 공동 위원회 -->
+<section class="slide light">
+  <div class="h-main" style="font-size:3.5vw;">미·소 공동 위원회, 두 번 열리다</div>
+  <div class="cards">
+    <div class="card fragment" style="border-top:4px solid #991b1b;">
+      <div class="card-num">1차</div>
+      <div class="card-title">1946년 3월, 서울</div>
+      <div class="card-body">소련: 모스크바 결정 지지 단체만 협의<br>미국: 모든 정치 세력 참여 보장<br><b style="color:#991b1b;">→ 결렬</b></div>
+    </div>
+    <div class="card fragment" style="border-top:4px solid #991b1b;">
+      <div class="card-num">2차</div>
+      <div class="card-title">1947년 5월, 서울</div>
+      <div class="card-body">입장 차이 좁히지 못함<br>제2차 미·소 공동 위원회도 결렬<br><b style="color:#991b1b;">→ 다시 결렬</b></div>
+    </div>
+  </div>
+  <div class="h-caption fragment" style="margin-top:3vh;">미군정은 좌익 탄압 + 중도 세력 지원으로 전환</div>
+</section>
+
+<!-- 25. 사료: 정읍 발언 -->
+<section class="slide dark">
+  <div class="source-quote">
+    <div class="source-label">사료 · 1946.6.3 정읍 발언</div>
+    <div class="source-original">이제 무기 휴회된 미·소 공동 위원회가 재개될 기색도 보이지 않으며, 통일 정부를 고대하나 여의케 되지 않으니, 우리는 남방만이라도 임시 정부, 혹은 위원회 같은 것을 조직하여 38도선 이북에서 소련이 철퇴하도록 세계 공론에 호소하여야 할 것이니…</div>
+    <div class="source-meta">— 이승만, 『서울신문』 1946.6.5.</div>
+  </div>
+</section>
+
+<!-- 26. 좌우 합작 운동 -->
+<section class="slide light">
+  <div class="h-sub">중도 세력의 결단</div>
+  <div class="h-main">좌우 합작 운동 (1946)</div>
+  <div class="person-row">
+    <div class="person-card">
+      <div class="person-initial">여</div>
+      <div class="person-name">여운형</div>
+      <div class="person-dates">1886~1947</div>
+      <div class="person-desc">중도 좌파<br>좌우 합작 위원회 조직</div>
+    </div>
+    <div class="person-card">
+      <div class="person-initial">김</div>
+      <div class="person-name">김규식</div>
+      <div class="person-dates">1881~1950</div>
+      <div class="person-desc">중도 우파<br>남북 통합 임시 정부 지향</div>
+    </div>
+  </div>
+  <div class="h-caption" style="margin-top:3vh;">좌우 대립 극복 + 미·소 공동 위원회 재개 + 분단 저지</div>
+</section>
+
+<!-- 27. 좌우 합작 7원칙 -->
+<section class="slide light">
+  <div class="h-sub">1946.10.7</div>
+  <div class="h-main" style="font-size:3.5vw;">좌우 합작 7원칙 (주요 4개)</div>
+  <div class="decision-grid">
+    <div class="decision-item fragment">
+      <div class="d-num">1항</div>
+      <div class="d-title">남북 통한 좌우 합작</div>
+      <div class="d-desc">모스크바 결정에 의거, 민주주의 임시 정부 수립</div>
+    </div>
+    <div class="decision-item fragment">
+      <div class="d-num">2항</div>
+      <div class="d-title">미·소 공동 위원회 속개</div>
+      <div class="d-desc">공동 성명 발표로 요청</div>
+    </div>
+    <div class="decision-item fragment">
+      <div class="d-num">3항</div>
+      <div class="d-title">토지 개혁</div>
+      <div class="d-desc">유상 매상 + 무상 분배 방식</div>
+    </div>
+    <div class="decision-item fragment">
+      <div class="d-num">4항</div>
+      <div class="d-title">친일파 처리</div>
+      <div class="d-desc">합작 위원회에서 조례 제정</div>
+    </div>
+  </div>
+</section>
+
+<!-- 28. 이미지: 좌우 합작 만평 -->
+<section class="slide light img-slide">
+  <img src="images/p7_img0.png" alt="곤경에 처한 좌우 합작 운동">
+  <div class="img-caption">'곤경에 처한 좌우 합작 운동' — 극좌·극우의 방해를 풍자한 만평 (1946.10.28)</div>
+</section>
+
+<!-- 29. 좌우 합작 좌절 -->
+<section class="slide light">
+  <div class="h-main" style="font-size:3.5vw;">좌우 합작 운동의 좌절</div>
+  <div class="flow">
+    <div class="flow-step fragment">
+      <div class="s-title">양측 비협조</div>
+      <div class="s-sub">좌우 양측 모두<br>적극 참여하지 않음</div>
+    </div>
+    <div class="flow-arrow fragment">→</div>
+    <div class="flow-step fragment">
+      <div class="s-title">미군정 이탈</div>
+      <div class="s-sub">1947년 5월<br>제2차 미·소 공동 위원회 결렬</div>
+    </div>
+    <div class="flow-arrow fragment">→</div>
+    <div class="flow-step fragment" style="border-color:#991b1b;">
+      <div class="s-title" style="color:#991b1b;">여운형 암살</div>
+      <div class="s-sub">1947년 7월<br>좌우 합작 운동 중단</div>
+    </div>
+  </div>
+</section>
+
+<!-- 30. Part 3 -->
+<section class="slide dark">
+  <div class="part-label">PART 3</div>
+  <div class="part-title">분단과 통일의<br>갈림길</div>
+</section>
+
+<!-- 31. 냉전의 시작 -->
+<section class="slide light">
+  <div class="h-sub">1947년 3월</div>
+  <div class="h-main" style="font-size:4vw;">트루먼 독트린 — 냉전 본격화</div>
+  <div class="note-box" style="text-align:center;">
+    미국 트루먼 대통령 — <span class="hl">"사회주의의 확장을 저지하겠다"</span><br>
+    총성 없는 전쟁, <span class="hl">Cold War</span>의 시작
+  </div>
+</section>
+
+<!-- 32. 미·소 블록 -->
+<section class="slide light">
+  <div class="h-main" style="font-size:3.5vw;">두 진영으로 갈라진 세계</div>
+  <div class="compare">
+    <div class="compare-col left" style="border-top-color:#1e3a8a; background:rgba(30,58,138,0.05);">
+      <h3 style="color:#1e3a8a;">미국 · 자본주의</h3>
+      <ul>
+        <li class="fragment">마셜 계획 — 서유럽 경제 원조</li>
+        <li class="fragment">북대서양 조약 기구 (NATO)</li>
+        <li class="fragment">일본을 반공 기지로, 재무장 추진</li>
+      </ul>
+    </div>
+    <div class="compare-divider"></div>
+    <div class="compare-col right" style="border-top-color:#991b1b; background:rgba(153,27,27,0.05);">
+      <h3 style="color:#991b1b;">소련 · 사회주의</h3>
+      <ul>
+        <li class="fragment">공산권 경제 상호 원조 회의 (COMECON)</li>
+        <li class="fragment">바르샤바 조약 기구 (WTO)</li>
+        <li class="fragment">동유럽 사회주의 국가 결집</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- 33. 이미지: 냉전 만평 -->
+<section class="slide light img-slide">
+  <img src="images/p8_img0.png" alt="냉전 만평">
+  <div class="img-caption">'냉정(冷情) 전쟁' — 『만화행진』 1947.9.15</div>
+</section>
+
+<!-- 34. 냉전이 동아시아에 미친 영향 -->
+<section class="slide light">
+  <div class="h-main" style="font-size:3.5vw;">냉전, 동아시아를 덮치다</div>
+  <div class="cards">
+    <div class="card fragment">
+      <div class="card-num">日</div>
+      <div class="card-title">일본 재무장</div>
+      <div class="card-body">비군사화 방침에서 전환<br>반공 기지로 탈바꿈</div>
+    </div>
+    <div class="card fragment">
+      <div class="card-num">中</div>
+      <div class="card-title">중국 내전</div>
+      <div class="card-body">국민당 vs 공산당 내전<br>1949년 중화 인민 공화국 수립<br>국민당은 타이완으로</div>
+    </div>
+    <div class="card fragment" style="border-color:#991b1b; border-top:4px solid #991b1b;">
+      <div class="card-num">韓</div>
+      <div class="card-title">한반도</div>
+      <div class="card-body">제2차 미·소 공동 위원회 결렬<br>미국, 한국 문제를 유엔에 이관</div>
+    </div>
+  </div>
+</section>
+
+<!-- 35. 유엔 이관 타임라인 -->
+<section class="slide light">
+  <div class="h-main" style="font-size:3.5vw;">한국 문제, 유엔으로</div>
+  <div class="timeline" style="grid-template-columns: repeat(4, 1fr);">
+    <div class="tl-label">1947.9</div>
+    <div class="tl-label">1947.11</div>
+    <div class="tl-label">1948.1</div>
+    <div class="tl-label current">1948.2</div>
+    <div class="tl-dot-row" style="grid-template-columns: repeat(4, 1fr);">
+      <div class="tl-line-overlay"></div>
+      <div class="tl-dot-cell"><div class="tl-dot"></div></div>
+      <div class="tl-dot-cell"><div class="tl-dot"></div></div>
+      <div class="tl-dot-cell"><div class="tl-dot"></div></div>
+      <div class="tl-dot-cell"><div class="tl-dot current"></div></div>
+    </div>
+    <div class="tl-desc">미국, 한국 문제<br>유엔 이관 제안</div>
+    <div class="tl-desc">유엔 총회<br>남북 총선거 결정</div>
+    <div class="tl-desc">유엔 한국<br>임시 위원단 파견<br>소련, 입북 거부</div>
+    <div class="tl-desc">유엔 소총회<br>남한만의 총선거 결정</div>
+  </div>
+  <div class="h-caption" style="margin-top:4vh;">소련은 "미·소 양군 동시 철수"를 주장 — 거부됨</div>
+</section>
+
+<!-- 36. 남북 협상 -->
+<section class="slide light">
+  <div class="h-sub">1948년 4월, 평양</div>
+  <div class="h-main">남북 협상 — 분단을 막아라</div>
+  <div class="person-row">
+    <div class="person-card" style="border-top-color:#166534;">
+      <div class="person-initial" style="background:#166534;">김</div>
+      <div class="person-name">김구</div>
+      <div class="person-dates">1876~1949</div>
+      <div class="person-desc">대한민국 임시 정부 주석<br>통일 정부 수립 추진</div>
+    </div>
+    <div class="person-card" style="border-top-color:#166534;">
+      <div class="person-initial" style="background:#166534;">김</div>
+      <div class="person-name">김규식</div>
+      <div class="person-dates">1881~1950</div>
+      <div class="person-desc">중도 우파<br>평양행 동행</div>
+    </div>
+  </div>
+  <div class="h-caption" style="margin-top:3vh;">외국 군대 즉시 철수 + 남북 총선거 담은 공동 성명서 발표</div>
+</section>
+
+<!-- 37. 사료: 삼천만 동포에게 읍고함 -->
+<section class="slide dark">
+  <div class="source-quote">
+    <div class="source-label">사료 · 1948.2 김구</div>
+    <div class="source-original">나는 통일된 조국을 건설하려다가 38도선을 베고 쓰러질지언정, 일신에 구차한 안일을 취하여 단독 정부를 세우는 데는 협력하지 아니하겠다.</div>
+    <div class="source-meta">— 엄항섭, 『김구 주석 최근 언론집』 · 「삼천만 동포에게 읍고함」</div>
+  </div>
+</section>
+
+<!-- 38. 제주 4·3 큰 날짜 -->
+<section class="slide dark">
+  <div class="big-date" style="color:#991b1b;">1948<span style="font-size:7vw;color:#a8a29e;">.4.3</span></div>
+  <div class="big-date-sub" style="color:#faf8f5;">제주 4·3 사건</div>
+  <div class="h-caption" style="color:#a8a29e; margin-top:4vh;">단독 선거 반대 무장봉기 → 군경의 강경 진압 → 수만 명 희생</div>
+</section>
+
+<!-- 39. 제주 4·3 전개 -->
+<section class="slide light">
+  <div class="h-main" style="font-size:3.2vw;">제주 4·3, 비극의 전개</div>
+  <div class="timeline" style="grid-template-columns: repeat(4, 1fr);">
+    <div class="tl-label">1947.3.1</div>
+    <div class="tl-label current" style="color:#991b1b;">1948.4.3</div>
+    <div class="tl-label">1948.10.19</div>
+    <div class="tl-label">~1954</div>
+    <div class="tl-dot-row" style="grid-template-columns: repeat(4, 1fr);">
+      <div class="tl-line-overlay"></div>
+      <div class="tl-dot-cell"><div class="tl-dot"></div></div>
+      <div class="tl-dot-cell"><div class="tl-dot current" style="background:#991b1b; box-shadow:0 0 0 4px rgba(153,27,27,0.3);"></div></div>
+      <div class="tl-dot-cell"><div class="tl-dot"></div></div>
+      <div class="tl-dot-cell"><div class="tl-dot"></div></div>
+    </div>
+    <div class="tl-desc">3·1절 시위<br>경찰 발포로<br>사상자 발생</div>
+    <div class="tl-desc">제주도 남로당<br>단독 선거 반대<br>무장봉기</div>
+    <div class="tl-desc">여수·순천<br>10·19 사건</div>
+    <div class="tl-desc">약 2만 5천~3만명<br>희생</div>
+  </div>
+</section>
+
+<!-- 40. 여수·순천 10·19 -->
+<section class="slide light">
+  <div class="h-sub">1948년 10월</div>
+  <div class="h-main" style="font-size:4vw;">여수·순천 10·19 사건</div>
+  <div class="note-box" style="text-align:center;">
+    제주도 파견 예정이던 <span class="hl">여수 주둔 국군 부대가 출동 명령을 거부</span>하고 봉기<br>
+    진압 과정에서 여수·순천·지리산 일대로 확산<br>
+    <span class="hl">수많은 민간인이 희생</span>됨
+  </div>
+</section>
+
+<!-- 41. 제주 4·3 치유 -->
+<section class="slide light">
+  <div class="h-main" style="font-size:3.2vw;">반세기의 침묵, 그리고 진상 규명</div>
+  <div class="timeline" style="grid-template-columns: repeat(3, 1fr);">
+    <div class="tl-label">2000년</div>
+    <div class="tl-label">2003년</div>
+    <div class="tl-label current">2003.10</div>
+    <div class="tl-dot-row" style="grid-template-columns: repeat(3, 1fr);">
+      <div class="tl-line-overlay"></div>
+      <div class="tl-dot-cell"><div class="tl-dot"></div></div>
+      <div class="tl-dot-cell"><div class="tl-dot"></div></div>
+      <div class="tl-dot-cell"><div class="tl-dot current"></div></div>
+    </div>
+    <div class="tl-desc">진상 규명 및 희생자<br>명예 회복 특별법 제정</div>
+    <div class="tl-desc">정부 진상 보고서 발간<br>국가 권력의 과오 인정</div>
+    <div class="tl-desc">노무현 대통령<br>공식 사과</div>
+  </div>
+  <div class="h-caption" style="margin-top:4vh;">반공 이데올로기에 묻혔던 비극, 민주화와 함께 세상에 나오다</div>
+</section>
+
+<!-- 42. 이미지: 노무현 추모 -->
+<section class="slide light img-slide">
+  <img src="images/p9_img19.png" alt="노무현 대통령 제주 4·3 추모">
+  <div class="img-caption">제주 4·3 사건 추모제에서 묵념하는 노무현 대통령 (2006.4.3)</div>
+</section>
+
+<!-- 43. 핵심 타임라인 종합 -->
+<section class="slide dark">
+  <div class="h-main" style="font-size:3.2vw; color:#faf8f5;">1945 → 1948, 이 단원의 흐름</div>
+  <div class="timeline" style="grid-template-columns: repeat(6, 1fr);">
+    <div class="tl-label" style="color:#d97706;">1945.8</div>
+    <div class="tl-label" style="color:#d97706;">1945.12</div>
+    <div class="tl-label" style="color:#d97706;">1946.3</div>
+    <div class="tl-label" style="color:#d97706;">1946.10</div>
+    <div class="tl-label" style="color:#d97706;">1947.11</div>
+    <div class="tl-label current" style="color:#fbbf24;">1948.4</div>
+    <div class="tl-dot-row" style="grid-template-columns: repeat(6, 1fr);">
+      <div class="tl-line-overlay" style="background:#57534e;"></div>
+      <div class="tl-dot-cell"><div class="tl-dot" style="border-color:#1c1917;"></div></div>
+      <div class="tl-dot-cell"><div class="tl-dot" style="border-color:#1c1917;"></div></div>
+      <div class="tl-dot-cell"><div class="tl-dot" style="border-color:#1c1917;"></div></div>
+      <div class="tl-dot-cell"><div class="tl-dot" style="border-color:#1c1917;"></div></div>
+      <div class="tl-dot-cell"><div class="tl-dot" style="border-color:#1c1917;"></div></div>
+      <div class="tl-dot-cell"><div class="tl-dot current" style="background:#fbbf24; box-shadow:0 0 0 4px rgba(251,191,36,0.3);"></div></div>
+    </div>
+    <div class="tl-desc" style="color:#e7e5e4;">8·15 광복<br>건준 결성</div>
+    <div class="tl-desc" style="color:#e7e5e4;">모스크바<br>3국 외상 회의</div>
+    <div class="tl-desc" style="color:#e7e5e4;">1차 미·소<br>공동 위원회</div>
+    <div class="tl-desc" style="color:#e7e5e4;">좌우 합작<br>7원칙</div>
+    <div class="tl-desc" style="color:#e7e5e4;">유엔 총회<br>총선거 결정</div>
+    <div class="tl-desc" style="color:#e7e5e4;">남북 협상<br>제주 4·3 사건</div>
+  </div>
+</section>
+
+<!-- 44. 마무리 -->
+<section class="slide light">
+  <div class="h-sub">이 단원의 핵심 키워드</div>
+  <div class="h-main" style="font-size:3.5vw;">통일 정부를 향한 짧은 3년</div>
+  <div class="kw-grid">
+    <div class="kw-item fragment">8·15 광복</div>
+    <div class="kw-item fragment">조선 건국 준비 위원회</div>
+    <div class="kw-item fragment">38도선 분할</div>
+    <div class="kw-item fragment">모스크바 3국 외상 회의</div>
+    <div class="kw-item fragment">미·소 공동 위원회</div>
+    <div class="kw-item fragment">좌우 합작 운동</div>
+    <div class="kw-item fragment">냉전 · 트루먼 독트린</div>
+    <div class="kw-item fragment">남북 협상</div>
+    <div class="kw-item fragment">제주 4·3 사건</div>
+  </div>
+</section>
+
+<!-- 45. 닫는 슬라이드 -->
+<section class="slide dark">
+  <div class="cover-unit">NEXT</div>
+  <div class="cover-line"></div>
+  <div class="cover-title" style="font-size:4.5vw;">대한민국 정부 수립과<br>6·25 전쟁</div>
+  <div class="cover-sub">— 다음 소단원에서 이어집니다 —</div>
+</section>
+
+<div class="counter"><span id="cur">1</span> / <span id="tot">45</span></div>
+<div class="hint">← → 또는 Space 로 넘기기</div>
+
+<script>
+const slides = document.querySelectorAll('.slide');
+const total = slides.length;
+document.getElementById('tot').textContent = total;
+let current = 0;
+let fragmentIdx = 0;
+
+function updateCounter() {
+  document.getElementById('cur').textContent = current + 1;
+}
+
+function showSlide(i, showAllFragments) {
+  slides.forEach((s, idx) => s.classList.toggle('active', idx === i));
+  const frags = slides[i].querySelectorAll('.fragment');
+  if (showAllFragments) {
+    frags.forEach(f => f.classList.add('visible'));
+    fragmentIdx = frags.length;
+  } else {
+    frags.forEach(f => f.classList.remove('visible'));
+    fragmentIdx = 0;
+  }
+  updateCounter();
+}
+
+function nextFragment() {
+  const active = slides[current];
+  const frags = active.querySelectorAll('.fragment');
+  if (fragmentIdx < frags.length) {
+    frags[fragmentIdx].classList.add('visible');
+    fragmentIdx++;
+    return true;
+  }
+  return false;
+}
+
+function next() {
+  if (!nextFragment()) {
+    if (current < slides.length - 1) {
+      current++;
+      showSlide(current, false);
+    }
+  }
+}
+
+function prev() {
+  if (current > 0) {
+    current--;
+    showSlide(current, true);
+  }
+}
+
+document.addEventListener('keydown', e => {
+  if (['ArrowRight', 'ArrowDown', ' '].includes(e.key)) { e.preventDefault(); next(); }
+  else if (['ArrowLeft', 'ArrowUp'].includes(e.key)) { e.preventDefault(); prev(); }
+  else if (e.key === 'Home') { current = 0; showSlide(0, false); }
+  else if (e.key === 'End') { current = total - 1; showSlide(current, true); }
+});
+
+showSlide(0, false);
+</script>
+
+</body>
+</html>
